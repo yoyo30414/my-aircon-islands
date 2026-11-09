@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 冷氣設計群島</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <main class="sea" id="sea">
+    <div class="world" id="world"></div>
+    <div class="map" id="map">
+      <svg class="routes" id="routes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div id="islands"></div>
+      <div class="avatar" id="avatar" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <header class="topbar glass">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <span class="brand-text"><b id="world-name"></b><small id="world-sub"></small></span>
+    </div>
+    <div class="top-right">
+      <div class="me chip" id="me-badge" hidden>
+        <span class="mini-fig" id="me-avatar"></span>
+        <span class="me-text"><b id="me-name"></b><small id="me-level"></small></span>
+      </div>
+      <div class="seg" id="mood" role="group" aria-label="天色">
+        <button data-mood="dawn">晨光</button><button data-mood="fog">海霧</button><button data-mood="night">夜海</button>
+      </div>
+      <nav class="tools">
+        <button class="tool" id="btn-report" title="我的課堂報告">📄<span>報告</span></button>
+        <button class="tool" id="btn-key" title="Gemini 金鑰">🔑<span>金鑰</span></button>
+        <button class="tool" id="btn-settings" title="設定">⚙<span>選單</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <aside class="hud-left">
+    <div class="chip glass progress"><span>島章</span><span class="bar"><i id="progress-bar"></i></span><b id="progress-num">0 / 5</b></div>
+    <div class="chip glass hint" id="hint">方向鍵或 WASD 走路・走到守門人身邊就開始・拖曳旋轉</div>
+    <div class="mission glass" id="mission" hidden>
+      <div class="mission-title" id="mission-title"></div>
+      <div class="mission-line" id="mission-line"></div>
+    </div>
+  </aside>
+
+  <nav class="bottombar" id="bottombar">
+    <button class="pill glass" id="btn-overview">🏝️ 回到全景</button>
+    <button class="pill glass" id="btn-follow">🧍 跟隨角色</button>
+    <button class="pill glass" id="btn-bag">🎒 背包 <span class="count" id="bag-count">0</span></button>
+  </nav>
+
+  <section class="panel glass" id="panel" aria-live="polite" hidden>
+    <button class="panel-close" id="panel-close" aria-label="關閉">✕</button>
+    <div class="panel-body" id="panel-body"></div>
+  </section>
+
+  <div class="modal-back" id="modal-back" hidden>
+    <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+</div>
+
+<section id="print-area" aria-hidden="true"></section>
+
+<script src="js/vendor/three.min.js"></script>
+<script src="js/content.js"></script>
+<script src="js/world3d.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
